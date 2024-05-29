@@ -1,0 +1,14 @@
+{
+  "name": "typhoon-api-example",
+  "module": "./src/app.ts",
+  "type": "module",
+  "dependencies": {
+    "@types/bun": "^1.1.3",
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "omise": "^0.12.1"
+  },
+  "scripts": {
+    "dev": "bun run ./src/app.ts"
+  }
+}
