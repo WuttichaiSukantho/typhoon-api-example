@@ -1,11 +1,11 @@
-import axios from 'axios'
-
-// Replace 'YOUR_API_KEY' with your actual OpenTyphoon API key
-const API_KEY = process.env.API_KEY
+const axios = require('axios');
 
 exports.serch = async (req: any, res: any) => {
+    const searchTerm = JSON.stringify(req.body)
+    if (!searchTerm) {
+        return res.status(400).json({ message: "Please enter a search term." })
+    }
     try {
-        // Define the request payload
         const requestData = {
             model: 'typhoon-instruct',
             messages: [
@@ -15,7 +15,7 @@ exports.serch = async (req: any, res: any) => {
                 },
                 {
                     role: 'user',
-                    content: 'ขอสูตรบะหมี่',
+                    content: searchTerm,
                 },
             ],
             max_tokens: 500,
@@ -31,7 +31,7 @@ exports.serch = async (req: any, res: any) => {
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${API_KEY}`,
+                    Authorization: `Bearer ${process.env.API_KEY}`,
                 },
             }
         )

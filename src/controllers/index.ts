@@ -1,3 +1,4 @@
-controller.opentyphoonController = require('./opentyphoonController');
-
-module.exports = controller;
+exports.controller = {
+    basicController: require('./basicController'),
+    opentyphoonController: require('./opentyphoonController')
+}

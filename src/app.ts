@@ -2,10 +2,11 @@ import express from 'express'
 
 const app = express()
 const port = 3000
+const routes = require("./routes");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use("/api/lead/v1", routes);
+app.use(routes);
 
 // Start the server
 app.listen(port, () => {
